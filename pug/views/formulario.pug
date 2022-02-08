@@ -1,0 +1,12 @@
+extends inicio.pug 
+
+
+html 
+    head 
+        form(action="/productos" method= "post")
+            label= "Nombre de Producto"
+            input(type="text")
+            label= "Precio"
+            input(type="number")
+            button= "Enviar"
+            button('/inicio')= "Ir al inicio"
