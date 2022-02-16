@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/1e5c30afea.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  <h1 style="color:black;">Productos</h1>
+  <br>
+  <table class="table table-dark table-hover text-center">
+    <thead>
+        <tr>
+          
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Foto</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+  </table>
+
+  <script>
+        
+    //CONSt del templpate (la forma) que va a tener nuestra data
+    const templateString= 
+          `{{#each data}}   
+          <tr>
+          <td>{{nombre}}</td>
+          <td>{{precio}}</td>
+          <td>{{foto}}</td>
+          </tr>
+          {{/each}}
+          `
+    //const que va a compilar el template anterior que contiene data
+    const template= Handlebars.compile(templateString)
+    
+    //contante que guarda la data que pondremos en el template
+
+    const data=  [ 
+        //infor para el template
+            {
+            nombre: "Computer", 
+            precio: 1230,
+            foto: "https://fontawesome.com/icons/laptop?s=solid"
+        },
+            {
+            
+            nombre: "Mouse", 
+            precio : 230,
+            foto:"https://www.iconfinder.com/icons/393554/click_left_mouse_tutorial_icon"
+        },
+            {
+            nombre: "Camera", 
+            precio : 630,
+            foto:"https://www.iconfinder.com/icons/4723671/camera_device_gadget_lens_photo_photography_picture_icon"
+        },
+            {
+            nombre: "Keyboard",
+            precio: 550, 
+            foto:"https://www.iconfinder.com/icons/6579072/and_computers_hardware_keyboard_icon"
+        }
+   ];
+          
+    //constante que contiene el template y la data y relaciona 
+    const content =template({data: data});
+    //llamamos el contenido  y creamos el template en la etiqueta span .
+    document.querySelector('tbody').innerHTML = content;
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
